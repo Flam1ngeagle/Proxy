@@ -1,0 +1,36 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Proxy</title>
+</head>
+<body>
+    <script>
+        // Proxy functionality
+        // This example uses the Fetch API to make proxy requests
+        // You can modify this code to use other methods or libraries
+
+        function proxyRequest(url, options) {
+            return fetch('/proxy', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    url: url,
+                    options: options
+                })
+            }).then(response => response.text());
+        }
+
+        // Example usage
+        proxyRequest('https://example.com')
+            .then(responseText => {
+                console.log(responseText);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+</body>
+</html>
